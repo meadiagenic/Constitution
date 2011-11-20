@@ -1,9 +1,5 @@
-﻿namespace Configuratinator3000
+﻿namespace System
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public interface IConfig
     {
     }
