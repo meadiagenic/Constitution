@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuratinator3000", "Configuratinator3000\Configuratinator3000.csproj", "{F217B69E-0C63-43B5-B6C5-5A196BD5763B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C7A9546-6763-428D-83A4-FD071E16CAC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuratinator3000.Tests", "Configuratinator3000.Tests\Configuratinator3000.Tests.csproj", "{62B30687-4A9F-40A5-BBEE-DE602A69FD96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuratinator3000", "Configuratinator3000\Configuratinator3000.csproj", "{D2915F3D-79CA-4A53-A375-DF74C3F05061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyDll", "DummyDll\DummyDll.csproj", "{203D6747-5AAE-4527-88BC-E3785A2E5643}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -16,14 +18,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F217B69E-0C63-43B5-B6C5-5A196BD5763B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F217B69E-0C63-43B5-B6C5-5A196BD5763B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F217B69E-0C63-43B5-B6C5-5A196BD5763B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F217B69E-0C63-43B5-B6C5-5A196BD5763B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62B30687-4A9F-40A5-BBEE-DE602A69FD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62B30687-4A9F-40A5-BBEE-DE602A69FD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62B30687-4A9F-40A5-BBEE-DE602A69FD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62B30687-4A9F-40A5-BBEE-DE602A69FD96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2915F3D-79CA-4A53-A375-DF74C3F05061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2915F3D-79CA-4A53-A375-DF74C3F05061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2915F3D-79CA-4A53-A375-DF74C3F05061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2915F3D-79CA-4A53-A375-DF74C3F05061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{203D6747-5AAE-4527-88BC-E3785A2E5643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{203D6747-5AAE-4527-88BC-E3785A2E5643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{203D6747-5AAE-4527-88BC-E3785A2E5643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{203D6747-5AAE-4527-88BC-E3785A2E5643}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

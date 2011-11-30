@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\projects\Configuratinator-3000\src\Configuratinator3000.Tests\Configuratinator3000.Tests.nunit" total="4" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-11-30" time="02:02:58">
+  <environment nunit-version="2.5.9.10348" clr-version="2.0.50727.5448" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\projects\Configuratinator-3000\src\Configuratinator3000.Tests" machine-name="MEAD-PC" user="Mead" user-domain="Mead-PC" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Project" name="C:\projects\Configuratinator-3000\src\Configuratinator3000.Tests\Configuratinator3000.Tests.nunit" executed="True" result="Success" success="True" time="0.071" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="C:\projects\Configuratinator-3000\src\Configuratinator3000.Tests\bin\Configuratinator3000.Tests.dll" executed="True" result="Success" success="True" time="0.052" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Configuratinator3000" executed="True" result="Success" success="True" time="0.051" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="0.051" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="ConfigTests" executed="True" result="Success" success="True" time="0.040" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="WhenLoadIsCalled" executed="True" result="Success" success="True" time="0.037" asserts="0">
+                        <results>
+                          <test-case name="Configuratinator3000.Tests.ConfigTests.WhenLoadIsCalled.Default_Environment_Should_Be_Test" executed="True" result="Success" success="True" time="0.022" asserts="0" />
+                          <test-case name="Configuratinator3000.Tests.ConfigTests.WhenLoadIsCalled.Environment_Should_Be_Set_To_ParameterValue" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                          <test-case name="Configuratinator3000.Tests.ConfigTests.WhenLoadIsCalled.Should_Load_All_IConfig_Classes_in_Bin" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                          <test-case name="Configuratinator3000.Tests.ConfigTests.WhenLoadIsCalled.Should_Set_Environment_To_Environment_In_Config_File" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

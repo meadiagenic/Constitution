@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,12 +25,15 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\packages\FluentAssertions.1.6.0\Lib\net40\FluentAssertions.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -41,6 +44,7 @@
       <HintPath>..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,20 +53,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurator\WhenLoadIsCalled.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ConfigTests\WhenLoadIsCalled.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>
+      </SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Configuratinator300.Tests.config" />
+    <None Include="Configuratinator3000.Tests.nunit" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Configuratinator3000\Configuratinator3000.csproj">
-      <Project>{F217B69E-0C63-43B5-B6C5-5A196BD5763B}</Project>
-      <Name>Configuratinator3000</Name>
-    </ProjectReference>
+    <Folder Include="DefaultConfigurator\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DefaultConfigurator\" />
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Configuratinator3000\Configuratinator3000.csproj">
+      <Project>{D2915F3D-79CA-4A53-A375-DF74C3F05061}</Project>
+      <Name>Configuratinator3000</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DummyDll\DummyDll.csproj">
+      <Project>{203D6747-5AAE-4527-88BC-E3785A2E5643}</Project>
+      <Name>DummyDll</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
