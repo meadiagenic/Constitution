@@ -1,25 +1,19 @@
 ﻿namespace Configuratinator3000.Tests.ConfigTests
 {
-	using System.Configuration;
-	using System.Diagnostics;
 	using System.Linq;
 	using FluentAssertions;
 	using NUnit.Framework;
 
-    [TestFixture]
-    public class WhenLoadIsCalled
-    {
+	[TestFixture]
+	public class WhenLoadIsCalled
+	{
 
 		[Test]
-		public void Default_Environment_Should_Be_Test()
+		public void Default_Environment_Should_Be_local()
 		{
-			Config.Load();
-			Config.Environment.Should().Be("test");
+			Configuratinator.Load();
+			Configuratinator.Environment.Should().Be("local");
 
-			for (int i = 0; i < ConfigurationManager.AppSettings.Count; i++)
-			{
-				Trace.WriteLine(ConfigurationManager.AppSettings.GetKey(i) + ": " + ConfigurationManager.AppSettings[i]);
-			}
 		}
 
 		[Test]
@@ -27,26 +21,26 @@
 		{
 			var environment = "something";
 
-			Config.Load(environment);
+			Configuratinator.Load(environment);
 
-			Config.Environment.Should().Be(environment);
+			Configuratinator.Environment.Should().Be(environment);
 		}
 
-        [Test]
-        public void Should_Set_Environment_To_Environment_In_Config_File()
-        {			
-			Config.Load();
+		[Test]
+		public void Should_Set_Environment_To_Environment_In_Config_File()
+		{
+			Configuratinator.Load();
 
-			Config.Environment.Should().Be("test");
-        }
+			Configuratinator.Environment.Should().Be("test");
+		}
 
 		[Test]
 		public void Should_Load_All_IConfig_Classes_in_Bin()
 		{
 
-			Config.Load();
+			Configuratinator.Load();
 
-			Config.LoadedAssemblies.Count().Should().BeGreaterThan(0);
+			Configuratinator.
 		}
-    }
+	}
 }
