@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
   <TopNode>[0-1000]C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\Configuratinator3000.Tests.nunit</TopNode>
-  <SelectedNode>[0-1005]Configuratinator3000.Tests.ConfigTests.WhenLoadIsCalled.Should_Load_All_IConfig_Classes_in_Bin</SelectedNode>
+  <SelectedNode>[0-1012]Configuratinator3000.Tests.AssemblyLoaderTests.WhenAssembliesIsCalled.WithBinFolderReturnsSevenAssemblies</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
     <Node UniqueName="[0-1000]C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\Configuratinator3000.Tests.nunit" Expanded="true" />
-    <Node UniqueName="[0-1006]C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\bin\Configuratinator3000.Tests.dll" Expanded="true" />
-    <Node UniqueName="[0-1007]Configuratinator3000" Expanded="true" />
-    <Node UniqueName="[0-1008]Configuratinator3000.Tests" Expanded="true" />
-    <Node UniqueName="[0-1009]Configuratinator3000.Tests.ConfigTests" Expanded="true" />
-    <Node UniqueName="[0-1001]Configuratinator3000.Tests.ConfigTests.WhenLoadIsCalled" Expanded="true" />
+    <Node UniqueName="[0-1016]C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\bin\Configuratinator3000.Tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1017]Configuratinator3000" Expanded="true" />
+    <Node UniqueName="[0-1018]Configuratinator3000.Tests" Expanded="true" />
+    <Node UniqueName="[0-1020]Configuratinator3000.Tests.AssemblyLoaderTests" Expanded="true" />
+    <Node UniqueName="[0-1011]Configuratinator3000.Tests.AssemblyLoaderTests.WhenAssembliesIsCalled" Expanded="true" />
+    <Node UniqueName="[0-1005]Configuratinator3000.Tests.AssemblyLoaderTests.WhenLoadFromBinIsCalled" Expanded="true" />
+    <Node UniqueName="[0-1007]Configuratinator3000.Tests.AssemblyLoaderTests.WhenLoadFromPathIsCalled" Expanded="true" />
+    <Node UniqueName="[0-1019]Configuratinator3000.Tests.ConfiguratinatorTests" Expanded="true" />
+    <Node UniqueName="[0-1001]Configuratinator3000.Tests.ConfiguratinatorTests.WhenLoadIsCalled" Expanded="true" />
   </Nodes>
 </VisualState>

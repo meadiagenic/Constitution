@@ -9,7 +9,6 @@
 *.userprefs
 .DS_Store
 deploy/
-build/
 [Bb]in/
 [Dd]ebug/
 [Oo]bj/

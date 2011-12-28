@@ -1,29 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\Configuratinator3000.Tests.nunit" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-12-23" time="08:30:40">
+<test-results name="C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\Configuratinator3000.Tests.nunit" total="11" errors="0" failures="3" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-12-28" time="15:43:20">
   <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.5448" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests" machine-name="DMBCDT4Q1LT" user="jason.mead" user-domain="FCSTONE" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Project" name="C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\Configuratinator3000.Tests.nunit" executed="True" result="Failure" success="False" time="0.003" asserts="0">
+  <test-suite type="Project" name="C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\Configuratinator3000.Tests.nunit" executed="True" result="Failure" success="False" time="0.300" asserts="0">
     <results>
-      <test-suite type="Assembly" name="C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\bin\Configuratinator3000.Tests.dll" executed="True" result="Failure" success="False" time="0.003" asserts="0">
+      <test-suite type="Assembly" name="C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\bin\Configuratinator3000.Tests.dll" executed="True" result="Failure" success="False" time="0.280" asserts="0">
         <results>
-          <test-suite type="Namespace" name="Configuratinator3000" executed="True" result="Failure" success="False" time="0.002" asserts="0">
+          <test-suite type="Namespace" name="Configuratinator3000" executed="True" result="Failure" success="False" time="0.280" asserts="0">
             <results>
-              <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="0.002" asserts="0">
+              <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="0.280" asserts="0">
                 <results>
-                  <test-suite type="Namespace" name="ConfigTests" executed="True" result="Failure" success="False" time="0.002" asserts="0">
+                  <test-suite type="Namespace" name="AssemblyLoaderTests" executed="True" result="Failure" success="False" time="0.240" asserts="0">
                     <results>
-                      <test-suite type="TestFixture" name="WhenLoadIsCalled" executed="True" result="Failure" success="False" time="0.002" asserts="0">
+                      <test-suite type="TestFixture" name="WhenAssembliesIsCalled" executed="True" result="Failure" success="False" time="0.220" asserts="0">
                         <results>
-                          <test-case name="Configuratinator3000.Tests.ConfigTests.WhenLoadIsCalled.Should_Load_All_IConfig_Classes_in_Bin" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                          <test-case name="Configuratinator3000.Tests.AssemblyLoaderTests.WhenAssembliesIsCalled.DefaultShouldReturnZeroAssemblies" executed="True" result="Success" success="True" time="0.090" asserts="0" />
+                          <test-case name="Configuratinator3000.Tests.AssemblyLoaderTests.WhenAssembliesIsCalled.WithBinFolderReturnsSevenAssemblies" executed="True" result="Failure" success="False" time="0.100" asserts="0">
                             <failure>
-                              <message><![CDATA[System.ArgumentNullException : Value cannot be null.
-Parameter name: source]]></message>
-                              <stack-trace><![CDATA[at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
-at Configuratinator3000.Tests.ConfigTests.WhenLoadIsCalled.Should_Load_All_IConfig_Classes_in_Bin() in C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\ConfigTests\WhenLoadIsCalled.cs:line 43
+                              <message><![CDATA[Expected 7 item(s), but found 0.]]></message>
+                              <stack-trace><![CDATA[at FluentAssertions.Frameworks.LateBoundTestFramework.Throw(String message) in c:\Workspaces\codeplex05\fluentassertions\Main\FluentAssertions.Net35\Frameworks\LateBoundTestFramework.cs:line 16
+at FluentAssertions.Verification.FailWith(String failureMessage, Object[] failureArgs) in c:\Workspaces\codeplex05\fluentassertions\Main\FluentAssertions.Net35\Verification.cs:line 134
+at FluentAssertions.Assertions.CollectionAssertions`2.HaveCount(Int32 expected, String reason, Object[] reasonArgs) in c:\Workspaces\codeplex05\fluentassertions\Main\FluentAssertions.Net35\Assertions\CollectionAssertions.cs:line 54
+at Configuratinator3000.Tests.AssemblyLoaderTests.WhenAssembliesIsCalled.WithBinFolderReturnsSevenAssemblies() in C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\AssemblyLoaderTests\WhenAssembliesIsCalled.cs:line 24
 ]]></stack-trace>
                             </failure>
                           </test-case>
+                          <test-case name="Configuratinator3000.Tests.AssemblyLoaderTests.WhenAssembliesIsCalled.WithExcludeNamedNunitReturnsFourAssemblies" executed="True" result="Failure" success="False" time="0.000" asserts="0">
+                            <failure>
+                              <message><![CDATA[Expected 4 item(s), but found 0.]]></message>
+                              <stack-trace><![CDATA[at FluentAssertions.Frameworks.LateBoundTestFramework.Throw(String message) in c:\Workspaces\codeplex05\fluentassertions\Main\FluentAssertions.Net35\Frameworks\LateBoundTestFramework.cs:line 16
+at FluentAssertions.Verification.FailWith(String failureMessage, Object[] failureArgs) in c:\Workspaces\codeplex05\fluentassertions\Main\FluentAssertions.Net35\Verification.cs:line 134
+at FluentAssertions.Assertions.CollectionAssertions`2.HaveCount(Int32 expected, String reason, Object[] reasonArgs) in c:\Workspaces\codeplex05\fluentassertions\Main\FluentAssertions.Net35\Assertions\CollectionAssertions.cs:line 54
+at Configuratinator3000.Tests.AssemblyLoaderTests.WhenAssembliesIsCalled.WithExcludeNamedNunitReturnsFourAssemblies() in C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\AssemblyLoaderTests\WhenAssembliesIsCalled.cs:line 32
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="Configuratinator3000.Tests.AssemblyLoaderTests.WhenAssembliesIsCalled.WithIncludeAppDomainAssembliesReturnsAppDomainAssemblies" executed="True" result="Failure" success="False" time="0.000" asserts="0">
+                            <failure>
+                              <message><![CDATA[Expected 15 item(s), but found 0.]]></message>
+                              <stack-trace><![CDATA[at FluentAssertions.Frameworks.LateBoundTestFramework.Throw(String message) in c:\Workspaces\codeplex05\fluentassertions\Main\FluentAssertions.Net35\Frameworks\LateBoundTestFramework.cs:line 16
+at FluentAssertions.Verification.FailWith(String failureMessage, Object[] failureArgs) in c:\Workspaces\codeplex05\fluentassertions\Main\FluentAssertions.Net35\Verification.cs:line 134
+at FluentAssertions.Assertions.CollectionAssertions`2.HaveCount(Int32 expected, String reason, Object[] reasonArgs) in c:\Workspaces\codeplex05\fluentassertions\Main\FluentAssertions.Net35\Assertions\CollectionAssertions.cs:line 54
+at Configuratinator3000.Tests.AssemblyLoaderTests.WhenAssembliesIsCalled.WithIncludeAppDomainAssembliesReturnsAppDomainAssemblies() in C:\Projects\GitHub\Configuratinator-3000\src\Configuratinator3000.Tests\AssemblyLoaderTests\WhenAssembliesIsCalled.cs:line 42
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="WhenLoadFromBinIsCalled" executed="True" result="Success" success="True" time="0.010" asserts="0">
+                        <results>
+                          <test-case name="Configuratinator3000.Tests.AssemblyLoaderTests.WhenLoadFromBinIsCalled.AssemblyFileLocationsShouldContainOneFolder" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="WhenLoadFromPathIsCalled" executed="True" result="Success" success="True" time="0.010" asserts="0">
+                        <results>
+                          <test-case name="Configuratinator3000.Tests.AssemblyLoaderTests.WhenLoadFromPathIsCalled.AddsPathIfPathIsRooted" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Configuratinator3000.Tests.AssemblyLoaderTests.WhenLoadFromPathIsCalled.AddsResolvedPathIfPathIsNotRooted" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Configuratinator3000.Tests.AssemblyLoaderTests.WhenLoadFromPathIsCalled.PathMustExistToBeAdded" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite type="Namespace" name="ConfiguratinatorTests" executed="True" result="Success" success="True" time="0.030" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="WhenLoadIsCalled" executed="True" result="Success" success="True" time="0.030" asserts="0">
+                        <results>
+                          <test-case name="Configuratinator3000.Tests.ConfiguratinatorTests.WhenLoadIsCalled.Default_Environment_Should_Be_local" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                          <test-case name="Configuratinator3000.Tests.ConfiguratinatorTests.WhenLoadIsCalled.Environment_Should_Be_Set_To_ParameterValue" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Configuratinator3000.Tests.ConfiguratinatorTests.WhenLoadIsCalled.ThrowsExceptionIfCalledMoreThanOnce" executed="True" result="Success" success="True" time="0.010" asserts="0" />
                         </results>
                       </test-suite>
                     </results>

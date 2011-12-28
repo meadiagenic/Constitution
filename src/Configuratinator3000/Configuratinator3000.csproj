@@ -44,7 +44,11 @@
   <ItemGroup>
     <Compile Include="AssemblyLoader.cs" />
     <Compile Include="Configuratinator.cs" />
+    <Compile Include="ConfiguratinatorException.cs" />
+    <Compile Include="DefaultConfiguration.cs" />
     <Compile Include="IConfiguration.cs" />
+    <Compile Include="IAssemblyLoader.cs" />
+    <Compile Include="IFluent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

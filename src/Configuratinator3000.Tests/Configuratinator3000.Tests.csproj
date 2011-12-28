@@ -53,14 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigTests\WhenLoadIsCalled.cs" />
+    <Compile Include="AssemblyLoaderTests\WhenAssembliesIsCalled.cs" />
+    <Compile Include="AssemblyLoaderTests\WhenLoadFromBinIsCalled.cs" />
+    <Compile Include="AssemblyLoaderTests\WhenLoadFromPathIsCalled.cs" />
+    <Compile Include="ConfiguratinatorTests\WhenLoadIsCalled.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>
       </SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Configuratinator300.Tests.config" />
     <None Include="Configuratinator3000.Tests.nunit" />
     <None Include="packages.config" />
   </ItemGroup>
