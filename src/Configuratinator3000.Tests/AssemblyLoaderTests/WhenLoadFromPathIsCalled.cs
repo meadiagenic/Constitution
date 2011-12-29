@@ -20,9 +20,8 @@ namespace Configuratinator3000.Tests.AssemblyLoaderTests
 		[Test]
 		public void AddsPathIfPathIsRooted()
 		{
-			Loader.LoadFromPath("c:\\");
-			Loader.AssemblyFolders.Should().HaveCount(1);
-			Loader.AssemblyFolders.First().FullName.Should().Contain("c:\\");
+			Loader.IncludeAssembliesFrom("c:\\");
+			Loader.Assemblies.Should().HaveCount(1);
 		}
 
 		[Test]

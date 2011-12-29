@@ -18,9 +18,9 @@ namespace Configuratinator3000.Tests.AssemblyLoaderTests
 		[Test]
 		public void AssemblyFileLocationsShouldContainOneFolder()
 		{
-			Loader.LoadFromBin();
+			Loader.IncludeAssembliesInBin();
 
-			Loader.AssemblyFolders.Count().Should().Be(1);
+			Loader.Assemblies.Select(assembly => assembly.GetName().Name).Should().Contain("DummyDll");
 
 		}
 	}

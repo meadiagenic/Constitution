@@ -9,10 +9,9 @@ namespace Configuratinator3000
 
 	public class AssemblyLoader : IAssemblyLoader
 	{
-		private IEnumerable<Assembly> assemblies;
 		public IEnumerable<Assembly> Assemblies
 		{
-			get { return assemblies = assemblies ?? UpdateAssemblies(); }
+			get { return UpdateAssemblies(); }
 		}
 
 		public IEnumerable<Type> Types
@@ -20,35 +19,33 @@ namespace Configuratinator3000
 			get { throw new NotImplementedException(); }
 		}
 
+		private readonly List<string> _assembliesToCheck = new List<string>(); 
 
-		private List<DirectoryInfo> _assemblyFolderLocations = new List<DirectoryInfo>();
-		public IEnumerable<DirectoryInfo> AssemblyFolders
-		{
-			get { return _assemblyFolderLocations; }
-		}
-
-		public IAssemblyLocationFilter LoadFromBin()
-		{
-			LoadFromPath("bin");
-			return this;
-		}
-
-		public IAssemblyLocationFilter LoadFromPath(string path)
+		public IAssemblyLocationFilter IncludeAssembliesFrom(string path, string wildCard, bool includeChildFolders)
 		{
 			var pathToAdd = Path.IsPathRooted(path) ? path : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, path);
-			if (Directory.Exists(pathToAdd))
+			if ((File.GetAttributes(pathToAdd) & FileAttributes.Directory) == FileAttributes.Directory)
 			{
-				_assemblyFolderLocations.Add(new DirectoryInfo(pathToAdd));
+				if (Directory.Exists(pathToAdd))
+				{
+					foreach (var file in Directory.GetFiles(pathToAdd, wildCard ?? "*.dll", includeChildFolders ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
+					{
+						CheckIfFileExistsAndAddToAssemblyList(file);
+					}
+				}
 			}
+			else
+			{
+				CheckIfFileExistsAndAddToAssemblyList(pathToAdd);
+			}
+			
 			return this;
 		}
 
-		private List<Assembly> _loadedAssemblies = new List<Assembly>(); 
-
-		public IAssemblyLocationFilter Load(Assembly assembly)
+		private void CheckIfFileExistsAndAddToAssemblyList(string pathToAdd)
 		{
-			_loadedAssemblies.Add(assembly);
-			return this;
+			if (File.Exists(pathToAdd))
+				_assembliesToCheck.Add(pathToAdd);
 		}
 
 		public void OnlyNamed(Func<string, bool> filter)
@@ -64,30 +61,34 @@ namespace Configuratinator3000
 
 		private IEnumerable<Assembly> UpdateAssemblies()
 		{
-			foreach (var assembly in _loadedAssemblies)
+			
+			var loadedAssemblyPaths = LoadedAssemblies().Select(a => a.Location).ToArray();
+
+			var unloadedAssemblies =
+				_assembliesToCheck.Where(f => !loadedAssemblyPaths.Contains(f, StringComparer.InvariantCultureIgnoreCase));
+
+
+			foreach (var file in unloadedAssemblies)
 			{
-				if (!FilterAssembly(assembly))
-				{
-					yield return assembly;
-				}
+				var assemblyName = AssemblyName.GetAssemblyName(file);
+				if (!FilterAssemblyName(assemblyName.Name)) break;
+				var assembly = Assembly.Load(assemblyName);
 			}
+			_assembliesToCheck.Clear();
 
-			var loadedAssemblyPaths = _loadedAssemblies.Select(a => a.Location).ToArray();
+			return LoadedAssemblies();
+			//foreach (var assemblyFile in _assembliesToCheck)
+			//{
+			//    var unloadedAssemblies = 
 
-			foreach (var dir in _assemblyFolderLocations)
-			{
-				var unloadedAssemblies =
-					dir.GetFiles("*.dll", SearchOption.AllDirectories).Where(
-						f => !loadedAssemblyPaths.Contains(f.FullName, StringComparer.InvariantCultureIgnoreCase));
-
-				foreach (var file in unloadedAssemblies)
-				{
-					if (!FilterAssemblyName(Path.GetFileName(file.FullName))) break;
-					var assembly = Assembly.Load(AssemblyName.GetAssemblyName(file.FullName));
-					if (!FilterAssembly(assembly))
-						yield return assembly;
-				}
-			}
+			//    foreach (var file in unloadedAssemblies)
+			//    {
+			//        if (!FilterAssemblyName(Path.GetFileName(file.FullName))) break;
+			//        var assembly = Assembly.Load(AssemblyName.GetAssemblyName(file.FullName));
+			//        if (FilterAssembly(assembly))
+			//            yield return assembly;
+			//    }
+			//}
 		}
 
 		private bool FilterAssembly(Assembly assembly)
@@ -102,10 +103,9 @@ namespace Configuratinator3000
 			return excludeFilter == null || !excludeFilter(Path.GetFileName(assemblyName));
 		}
 
-		public IAssemblyLocationFilter IncludeAppDomainAssemblies()
+		private IEnumerable<Assembly> LoadedAssemblies()
 		{
-			_loadedAssemblies.AddRange(AppDomain.CurrentDomain.GetAssemblies());
-			return this;
+			return AppDomain.CurrentDomain.GetAssemblies().Where(assembly => !assembly.IsDynamic && !assembly.ReflectionOnly);
 		}
 	}
 }

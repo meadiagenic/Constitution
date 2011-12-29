@@ -19,7 +19,7 @@ namespace Configuratinator3000.Tests.AssemblyLoaderTests
 		[Test]
 		public void WithBinFolderReturnsSevenAssemblies()
 		{
-			Loader.LoadFromBin();
+			Loader.IncludeAssembliesInBin();
 
 			Loader.Assemblies.Should().HaveCount(7);
 		}
@@ -27,25 +27,24 @@ namespace Configuratinator3000.Tests.AssemblyLoaderTests
 		[Test]
 		public void WithExcludeNamedNunitReturnsFourAssemblies()
 		{
-			Loader.LoadFromBin().ExcludeNamed(s => s.Contains("nunit"));
+			Loader.IncludeAssembliesInBin().ExcludeNamed(s => s.Contains("nunit"));
 
 			Loader.Assemblies.Should().HaveCount(4);
 		}
 
 		[Test]
-		public void WithIncludeAppDomainAssembliesReturnsAppDomainAssemblies()
+		public void NoFilterIsUsedReturnsAppDomainAssemblies()
 		{
 			var assemblyCount = AppDomain.CurrentDomain.GetAssemblies().Length;
-
-			Loader.IncludeAppDomainAssemblies();
 
 			Loader.Assemblies.Should().HaveCount(assemblyCount);
 		}
 
 		[Test]
-		public void DefaultShouldReturnZeroAssemblies()
+		public void DefaultShouldReturnAppDomainAssembliesAssemblies()
 		{
-			Loader.Assemblies.Should().HaveCount(0);
+			var assemblyCount = AppDomain.CurrentDomain.GetAssemblies().Length;
+			Loader.Assemblies.Should().HaveCount(assemblyCount);
 		}
 	}
 }
